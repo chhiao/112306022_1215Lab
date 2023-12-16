@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Input Comparison</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+            margin-top: 50px;
+        }
+
+    </style>
+</head>
+<body>
+
+    <label for="firstInput">1st Input：</label>
+    <input type="text" id="firstInput">
+
+    <br><br>
+
+    <label for="secondInput">2nd Input：</label>
+    <input type="text" id="secondInput">
+
+    <br><br>
+
+    <button onclick="showFirstInput()">show the first input</button>
+    <button onclick="showSecondInput()">show the second input</button>
+    <button onclick="compareInputs()">compare inputs</button>
+
+    <script>
+        function showFirstInput() {
+            var firstInput = document.getElementById('firstInput').value;
+            alert('1st Input: ' + firstInput);
+        }
+        function showSecondInput() {
+            var secondInput = document.getElementById('secondInput').value;
+            alert('2nd Input: ' + secondInput);
+        }
+        function compareInputs() {
+            var firstInput = parseFloat(document.getElementById('firstInput').value);
+            var secondInput = parseFloat(document.getElementById('secondInput').value);
+            var resultElement = document.getElementById('result');
+            
+            if (firstInput > secondInput) {
+                document.body.style.backgroundColor = 'lightblue';
+                document.body.innerHTML = '<p>' + firstInput + ' > ' + secondInput + '</p>';
+            } else if (firstInput < secondInput) {
+                document.body.style.backgroundColor = 'orange';
+                document.body.innerHTML = '<p>' + secondInput + ' > ' + firstInput + '</p>';
+            } else {
+                document.body.style.backgroundColor = 'lightyellow';
+                document.body.innerHTML = '<p>' + secondInput + ' == ' + firstInput + '</p>';
+            }
+        }
+    </script>
+
+</body>
+</html>
